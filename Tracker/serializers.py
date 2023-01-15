@@ -1,5 +1,10 @@
 from rest_framework import serializers
-from Tracker.models import FriendRecord,Transaction
+from Tracker.models import FriendRecord,Transaction,Friend_group,UserDetails
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=UserDetails
+        fields=('id','user','name','email_id','mobile_num','budget','amountspend')
 
 
 class FriendSerializer(serializers.ModelSerializer):
@@ -10,4 +15,9 @@ class FriendSerializer(serializers.ModelSerializer):
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model=Transaction
-        fields=('id','user','friend','amount','date','category')        
+        fields=('id','user','trans_id','amount','date','category')  
+
+class FriendGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Friend_group
+        fields=('id','user','trans_id','name')           

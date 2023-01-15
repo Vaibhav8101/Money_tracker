@@ -63,22 +63,32 @@ class UserDetails(models.Model):
     def __str__(self):
       return str(self.id)
     
+
 class FriendRecord(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,default="") 
     name=models.CharField(max_length=200)
     email_id=models.EmailField()
-    state=models.CharField(choices=STATE_CHOICES,max_length=50)
+    state=models.CharField(max_length=50)
     address=models.CharField(max_length=500)
     mobile_num=models.IntegerField()
     
     def __str__(self):
       return str(self.id)
     
+
 class Transaction(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    friend=models.ForeignKey(FriendRecord,on_delete=models.CASCADE)
+    # group_id=models.IntegerField()
+    trans_id=models.CharField(max_length=100,default='')
     amount=models.FloatField()
-    date=models.DateTimeField(auto_now=True)
-    category=models.CharField(choices=CATEGORY,max_length=50)    
+    date=models.DateField(auto_now=True)
+    category=models.CharField(choices=CATEGORY, max_length=50)    
     def __str__(self):
         return str(self.id)
+    
+class Friend_group(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    trans_id=models.CharField(max_length=100)
+    name=models.CharField(max_length=100)
+    
+    

@@ -4,10 +4,53 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Title</title>
+    <title>Money Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>    
+    <script src="https://kit.fontawesome.com/bdd88bc0d5.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<div id="app"></div>
+<body class="font-[Poppins] bg-gray-200 from-[#fbc2eb] to-[#a6c1ee] h-screen">
+    <header class="bg-white mt-10">
+        <nav class="flex justify-between items-center w-[92%]  mx-auto">
+            <div>
+               <h1 style="font-family:'Pacifico','cursive';
+               font-size: 2.65rem;">ShareKaro</h1>
+            </div>
+            <div
+                class="nav-links  duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="ml-10 flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-10">
+                    <li>
+                        <a class="hover:text-gray-500" href="#newfriend">Add Friend</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#newtransaction">Make New Transaction</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="items-center gap-6 mb-3">
+                <div class="flex" >
+                   <a href="http://localhost:8000/Tracker/v1/logout/"> <i class="fa-solid fa-right-from-bracket" style="font-size: 30px;
+                    margin-right: 1rem;"></i></a>
+                    <a href="http://localhost:8000/Tracker/v1/profile/"><svg class="h-8 w-8 text-black-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="9" cy="7" r="4" />  <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />  <path d="M16 11l2 2l4 -4" /></svg></a>
+                </div>
+            </div>
+            
+        </nav>
+    </header>
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+<div id="app" ></div>
 </body>
 {% load static %}
 <script src="{% static 'frontend/main.js' %}"></script>

@@ -4,7 +4,8 @@ from django.contrib import admin
 from .models import (
     FriendRecord,
     Transaction,
-    UserDetails
+    UserDetails,
+    Friend_group
 )
 
 @admin.register(UserDetails)
@@ -18,4 +19,8 @@ class FriendModelAdmin(admin.ModelAdmin):
 
 @admin.register(Transaction)
 class TransactionModelAdmin(admin.ModelAdmin):
-    list_display = ['id','user','friend','amount','date','category']
+    list_display = ['id','user','trans_id','amount','date','category']
+    
+@admin.register(Friend_group)
+class FriendGroupModelAdmin(admin.ModelAdmin):
+    list_display = ['id','user','trans_id','name']
